@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        0.6.12
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -98,6 +98,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_docdir}/%{name}-%{version}/docs_tech/
 
 %changelog
+* Fri Jul 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6.12-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
 * Wed Jul 06 2009  Conrad Sanderson  <conradsand ! ieee ! org> - 0.6.12-2
 - added conversion of DOS end-of-line to UNIX end-of-line for README.txt
 
