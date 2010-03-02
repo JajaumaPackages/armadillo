@@ -1,6 +1,6 @@
 Name:           armadillo
-Version:        0.6.12
-Release:        3%{?dist}
+Version:        0.9.2
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -8,7 +8,7 @@ License:        LGPLv3+
 URL:            http://arma.sourceforge.net/
 Source:         http://download.sourceforge.net/arma/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  cmake, boost-devel, lapack-devel, atlas-devel
+BuildRequires:  cmake, boost-devel, blas-devel, lapack-devel, atlas-devel
 
 %description
 Armadillo is a C++ linear algebra library (matrix maths)
@@ -30,7 +30,7 @@ than another language like Matlab or Octave.
 Summary:        Development headers and documentation for the Armadillo C++ library
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
-Requires:       boost-devel, atlas-devel
+Requires:       boost-devel, blas-devel, lapack-devel, atlas-devel, libstdc++-devel
 
 # The header files of Armadillo include some Boost and ATLAS header files,
 # delivered within the boost-devel and atlas-devel sub-packages, respectively.
@@ -98,6 +98,27 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_docdir}/%{name}-%{version}/docs_tech/
 
 %changelog
+* Tue Mar 02 2010 Conrad Sanderson  <conradsand ! ieee ! org> - 0.9.2-2
+- added explicit dependencies to the devel package
+
+* Tue Mar 02 2010 Conrad Sanderson  <conradsand ! ieee ! org> - 0.9.2-1
+- spec updated for Armadillo 0.9.2
+
+* Fri Feb 05 2010 Conrad Sanderson  <conradsand ! ieee ! org> - 0.9.0-1
+- spec updated for Armadillo 0.9.0
+
+* Mon Jan 27 2010 Conrad Sanderson  <conradsand ! ieee ! org> - 0.8.2-1
+- spec updated for Armadillo 0.8.2
+
+* Mon Dec 14 2009 Conrad Sanderson  <conradsand ! ieee ! org> - 0.8.0-1
+- spec updated for Armadillo 0.8.0
+
+* Fri Oct 23 2009 Conrad Sanderson  <conradsand ! ieee ! org> - 0.7.2-1
+- spec updated for Armadillo 0.7.2
+
+* Mon Oct 05 2009 Conrad Sanderson  <conradsand ! ieee ! org> - 0.7.0-1
+- spec updated for Armadillo 0.7.0
+
 * Fri Jul 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.6.12-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
 
