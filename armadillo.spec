@@ -1,12 +1,12 @@
 Name:           armadillo
-Version:        1.0.0
-Release:        2%{?dist}
+Version:        1.2.0
+Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
 License:        LGPLv3+
 URL:            http://arma.sourceforge.net/
-Source:         http://download.sourceforge.net/arma/%{name}-%{version}.tar.gz
+Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  cmake, boost-devel, blas-devel, lapack-devel, atlas-devel
 
@@ -98,12 +98,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc %{_docdir}/%{name}-%{version}/index.html
 %doc %{_docdir}/%{name}-%{version}/examples/
 %doc %{_docdir}/%{name}-%{version}/docs/
+%{_datadir}/Armadillo/
 
 %changelog
-* Mon Feb 07 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.0.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+* Mon Apr 18 2011 Conrad Sanderson - 1.2.0-1
+- spec updated for Armadillo 1.2.0
 
-* Thu Nov 25 2010 Conrad Sanderson - 1.0.0-1
+* Mon Nov 15 2010 Conrad Sanderson - 1.0.0-1
 - spec updated for Armadillo 1.0.0
 
 * Thu Oct 14 2010 Conrad Sanderson - 0.9.90-1
