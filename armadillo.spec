@@ -1,5 +1,5 @@
 Name:           armadillo
-Version:        1.2.0
+Version:        2.2.3
 Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
@@ -101,6 +101,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/Armadillo/
 
 %changelog
+* Thu Sep 15 2011 Conrad Sanderson - 2.2.3-1
+- spec updated for Armadillo 2.2.3
+
 * Mon Apr 18 2011 Conrad Sanderson - 1.2.0-1
 - spec updated for Armadillo 1.2.0
 
