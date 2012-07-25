@@ -1,6 +1,6 @@
 Name:           armadillo
-Version:        2.2.3
-Release:        3%{?dist}
+Version:        3.2.4
+Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -18,7 +18,7 @@ as well as a subset of trigonometric and statistics functions.
 Various matrix decompositions are provided through optional
 integration with LAPACK and ATLAS libraries.
 A delayed evaluation approach is employed (during compile time)
-to combine several operations into one and reduce (or eliminate) 
+to combine several operations into one and reduce (or eliminate)
 the need for temporaries. This is accomplished through recursive
 templates and template meta-programming.
 This library is useful if C++ has been decided as the language
@@ -35,8 +35,8 @@ Requires:       boost-devel, blas-devel, lapack-devel, atlas-devel, libstdc++-de
 # The header files of Armadillo include some Boost and ATLAS header files,
 # delivered within the boost-devel and atlas-devel sub-packages, respectively.
 # However, since there is no explicit dependency on Boost or ATLAS libraries
-# (most of Boost is delivered as header files only), the RPM building process 
-# does not detect these dependencies.  These dependencies must therefore be 
+# (most of Boost is delivered as header files only), the RPM building process
+# does not detect these dependencies.  These dependencies must therefore be
 # added manually.
 
 %description devel
@@ -93,7 +93,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so
 %{_includedir}/armadillo
 %{_includedir}/armadillo_bits/
-%{_includedir}/armadillo_itpp
 %doc %{_docdir}/%{name}-%{version}/README.txt
 %doc %{_docdir}/%{name}-%{version}/index.html
 %doc %{_docdir}/%{name}-%{version}/examples/
@@ -101,6 +100,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/Armadillo/
 
 %changelog
+* Wed Jul 25 2012 José Matos <jamatos@fedoraproject.org> - 3.2.4-1
+- Update to version 3.2.4
+
 * Wed Jul 18 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2.3-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
@@ -229,7 +231,7 @@ rm -rf $RPM_BUILD_ROOT
 - Modified to generate separate doc package
 
 * Thu Jan 28 2009  Conrad Sanderson
-- Added argument to cmake: -DCMAKE_INSTALL_PREFIX=/usr 
+- Added argument to cmake: -DCMAKE_INSTALL_PREFIX=/usr
 
 * Thu Jan 22 2009  Conrad Sanderson
 - Initial spec file prepared
