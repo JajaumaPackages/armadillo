@@ -1,10 +1,10 @@
 Name:           armadillo
-Version:        3.6.3
+Version:        3.800.0
 Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
-License:        LGPLv3+
+License:        MPLv2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -95,6 +95,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc examples armadillo_icon.png armadillo_nicta_2010.pdf
 
 %changelog
+* Sat Mar  2 2013 José Matos <jamatos@fedoraproject.org> - 3.800.0-1
+- Update to latest stable version
+- License changed from LGPLv3+ to MPLv2.0
+
 * Thu Feb 21 2013 José Matos <jamatos@fedoraproject.org> - 3.6.3-1
 - Update to latest stable release
 
