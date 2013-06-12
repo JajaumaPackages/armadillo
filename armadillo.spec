@@ -1,5 +1,5 @@
 Name:           armadillo
-Version:        3.820.0
+Version:        3.900.4
 Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
@@ -95,6 +95,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc armadillo_nicta_2010.pdf rcpp_armadillo_csda_2013.pdf
 
 %changelog
+* Wed Jun 12 2013 José Matos <jamatos@fedoraproject.org> - 3.900.4-1
+- update to 3.900.4
+
 * Mon May 13 2013 José Matos <jamatos@fedoraproject.org> - 3.820.0-1
 - update to 3.820.0
 
