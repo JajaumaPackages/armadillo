@@ -92,11 +92,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/Armadillo/
 %doc README.txt index.html docs.html
 %doc examples armadillo_icon.png
-%doc armadillo_nicta_2010.pdf rcpp_armadillo_csda_2013.pdf
+%doc armadillo_nicta_2010.pdf rcpp_armadillo_csda_2014.pdf
 
 %changelog
 * Tue Dec 10 2013 José Matos <jamatos@fedoraproject.org> - 3.930.1-1
 - update to 3.930.1
+- update the name of the documentation paper from 2013 to 2014
 
 * Mon Nov 25 2013 José Matos <jamatos@fedoraproject.org> - 3.920.3-1
 - update to 3.920.3
