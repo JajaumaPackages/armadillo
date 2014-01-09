@@ -1,5 +1,5 @@
 Name:           armadillo
-Version:        3.930.1
+Version:        4.000.0
 Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
@@ -8,7 +8,7 @@ License:        MPLv2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  cmake, boost-devel, blas-devel, lapack-devel, atlas-devel
+BuildRequires:  cmake, blas-devel, lapack-devel, atlas-devel, arpack-devel
 
 %description
 Armadillo is a C++ linear algebra library (matrix maths)
@@ -30,19 +30,12 @@ than another language like Matlab or Octave.
 Summary:        Development headers and documentation for the Armadillo C++ library
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
-Requires:       boost-devel, blas-devel, lapack-devel, atlas-devel, libstdc++-devel
-
-# The header files of Armadillo include some Boost and ATLAS header files,
-# delivered within the boost-devel and atlas-devel sub-packages, respectively.
-# However, since there is no explicit dependency on Boost or ATLAS libraries
-# (most of Boost is delivered as header files only), the RPM building process
-# does not detect these dependencies.  These dependencies must therefore be
-# added manually.
+Requires:       blas-devel, lapack-devel, atlas-devel, arpack-devel, libstdc++-devel
 
 %description devel
 This package contains files necessary for development using the
 Armadillo C++ library. It contains header files, example programs,
-and user documentation (reference guide).
+and user documentation (API reference guide).
 
 
 %prep
@@ -65,9 +58,10 @@ done
 rm -rf $RPM_BUILD_ROOT
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 rm -f examples/Makefile.cmake
-rm -rf examples/example1_win32
-rm -rf examples/example2_win32
-rm -rf examples/lib_win32
+rm -f examples/example1_win64.sln
+rm -f examples/example1_win64.vcxproj
+rm -f examples/example1_win64.README.txt
+rm -rf examples/lib_win64
 
 
 %clean
@@ -95,6 +89,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc armadillo_nicta_2010.pdf rcpp_armadillo_csda_2014.pdf
 
 %changelog
+* Thu Jan  9 2014 José Matos <jamatos@fedoraproject.org> - 4.000.0-1
+- update to 4.000.0
+- dropped boost dependency and added arpack
+- remove reference to boost in the comments
+
 * Tue Dec 10 2013 José Matos <jamatos@fedoraproject.org> - 3.930.1-1
 - update to 3.930.1
 - update the name of the documentation paper from 2013 to 2014
