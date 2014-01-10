@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        4.000.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -85,10 +85,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/armadillo_bits/
 %{_datadir}/Armadillo/
 %doc README.txt index.html docs.html
-%doc examples armadillo_icon.png
+%doc examples armadillo_icon.png mex_interface
 %doc armadillo_nicta_2010.pdf rcpp_armadillo_csda_2014.pdf
 
 %changelog
+* Fri Jan 10 2014 José Matos <jamatos@fedoraproject.org> - 4.000.0-2
+- add mex_interface to documentation (demonstration of how to connect
+  Armadillo with MATLAB/Octave mex functions)
+
 * Thu Jan  9 2014 José Matos <jamatos@fedoraproject.org> - 4.000.0-1
 - update to 4.000.0
 - dropped boost dependency and added arpack
