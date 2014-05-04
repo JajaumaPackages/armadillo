@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        4.300.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -8,7 +8,7 @@ License:        MPLv2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  cmake, blas-devel, lapack-devel, atlas-devel, arpack-devel
+BuildRequires:  cmake, blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel
 
 %description
 Armadillo is a C++ linear algebra library (matrix maths)
@@ -30,7 +30,7 @@ than another language like Matlab or Octave.
 Summary:        Development headers and documentation for the Armadillo C++ library
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
-Requires:       blas-devel, lapack-devel, atlas-devel, arpack-devel, libstdc++-devel
+Requires:       blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel, libstdc++-devel
 
 %description devel
 This package contains files necessary for development using the
@@ -85,10 +85,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/armadillo_bits/
 %{_datadir}/Armadillo/
 %doc README.txt index.html docs.html
-%doc examples armadillo_icon.png mex_interface
+%doc examples armadillo_icon.png
 %doc armadillo_nicta_2010.pdf rcpp_armadillo_csda_2014.pdf
+%doc mex_interface
 
 %changelog
+* Sun May  4 2014 José Matos <jamatos@fedoraproject.org> - 4.300.0-2
+- add hdf5-devel as build requirement and also as a required for the -devel sub-package
+
 * Fri May  2 2014 José Matos <jamatos@fedoraproject.org> - 4.300.0-1
 - update to 4.300.0
 
