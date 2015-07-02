@@ -1,6 +1,6 @@
 Name:           armadillo
-Version:        4.650.2
-Release:        3%{?dist}
+Version:        5.200.2
+Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -9,6 +9,7 @@ URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  cmake, blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel
+BuildRequires:  SuperLU-devel
 
 %description
 Armadillo is a C++ linear algebra library (matrix maths)
@@ -90,6 +91,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Thu Jul  2 2015 José Matos <jamatos@fedoraproject.org> - 5.200.2-1
+- update to 5.200.2
+- add BR SuperLU-devel, required on version 5+
+
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 4.650.2-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
