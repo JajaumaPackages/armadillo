@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        5.200.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -32,6 +32,7 @@ Summary:        Development headers and documentation for the Armadillo C++ libr
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel, libstdc++-devel
+Requires:       SuperLU-devel
 
 %description devel
 This package contains files necessary for development using the
@@ -91,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Fri Jul  3 2015 José Matos <jamatos@fedoraproject.org> - 5.200.2-2
+- add requires:SuperLU-devel to -devel subpackage
+
 * Thu Jul  2 2015 José Matos <jamatos@fedoraproject.org> - 5.200.2-1
 - update to 5.200.2
 - add BR SuperLU-devel, required on version 5+
