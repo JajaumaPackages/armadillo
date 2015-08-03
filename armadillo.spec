@@ -1,6 +1,6 @@
 Name:           armadillo
-Version:        5.200.2
-Release:        2%{?dist}
+Version:        5.300.4
+Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -78,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %{_libdir}/*.so.*
-%doc LICENSE.txt
+%license LICENSE.txt
 
 %files devel
 %defattr(-,root,root,-)
@@ -92,6 +92,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Mon Aug  3 2015 José Matos <jamatos@fedoraproject.org> - 5.300.4-1
+- update to 5.300.4
+- add %%license tag
+
 * Fri Jul  3 2015 José Matos <jamatos@fedoraproject.org> - 5.200.2-2
 - add requires:SuperLU-devel to -devel subpackage
 
