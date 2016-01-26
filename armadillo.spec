@@ -1,5 +1,5 @@
 Name:           armadillo
-Version:        5.600.2
+Version:        6.500.4
 Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
@@ -76,12 +76,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %files
-%defattr(-,root,root,-)
 %{_libdir}/*.so.*
 %license LICENSE.txt
 
 %files devel
-%defattr(-,root,root,-)
 %{_libdir}/*.so
 %{_includedir}/armadillo
 %{_includedir}/armadillo_bits/
@@ -92,6 +90,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Tue Jan 26 2016 José Matos <jamatos@fedoraproject.org> - 6.500.4-1
+- update to 6.500.4
+- cleaned spec file: removed %%defattr not needed in any supported
+  version of fedora or epel
+
 * Mon Sep 14 2015 José Matos <jamatos@fedoraproject.org> - 5.600.2-1
 - update to 5.600.2
 
