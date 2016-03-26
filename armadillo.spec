@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        6.600.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -90,6 +90,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Sat Mar 26 2016 Mukundan Ragavan <nonamedotc@gmail.com> - 6.600.4-2
+- Rebuild for SuperLU soname bump (libsuperlu.so.5.1)
+
 * Tue Mar 15 2016 José Matos <jamatos@fedoraproject.org> - 6.600.4-1
 - update to 6.600.4
 
