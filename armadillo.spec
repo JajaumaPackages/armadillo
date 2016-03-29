@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        6.600.4
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -9,7 +9,7 @@ URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  cmake, blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel
-BuildRequires:  SuperLU-devel
+BuildRequires:  SuperLU43-devel
 
 %description
 Armadillo is a C++ linear algebra library (matrix maths)
@@ -32,7 +32,7 @@ Summary:        Development headers and documentation for the Armadillo C++ libr
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel, libstdc++-devel
-Requires:       SuperLU-devel
+Requires:       SuperLU43-devel
 
 %description devel
 This package contains files necessary for development using the
@@ -42,6 +42,10 @@ and user documentation (API reference guide).
 
 %prep
 %setup -q
+
+# fix for building using SuperLU43
+sed -i 's/\/usr\/include\/SuperLU\//\/usr\/include\/SuperLU43\//' cmake_aux/Modules/ARMA_FindSuperLU.cmake
+sed -i 's/NAMES superlu/NAMES superlu43/' cmake_aux/Modules/ARMA_FindSuperLU.cmake
 
 # convert DOS end-of-line to UNIX end-of-line
 
@@ -90,6 +94,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Tue Mar 29 2016 Mukundan Ragavan <nonamedotc@gmail.com> - 6.600.4-3
+- Add SuperLU43 (compat package) as dep
+- Fix cmake files for building against SuperLU43
+
 * Sat Mar 26 2016 Mukundan Ragavan <nonamedotc@gmail.com> - 6.600.4-2
 - Rebuild for SuperLU soname bump (libsuperlu.so.5.1)
 
