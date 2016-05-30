@@ -37,15 +37,9 @@ Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel, libstdc++-devel
 %if 0%{?fedora} > 23
-Requires:  SuperLU43-devel
-%else
 Requires:  SuperLU-devel
-%endif
-
-%if 0%{?fedora} > 23
-BuildRequires:  SuperLU43-devel
 %else
-BuildRequires:  SuperLU-devel
+Requires:  SuperLU43-devel
 %endif
 
 
