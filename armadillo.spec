@@ -8,12 +8,9 @@ License:        MPLv2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.xz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  cmake, blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel
-%if 0%{?fedora} > 23
-BuildRequires:  SuperLU43-devel
-%else
+BuildRequires:  cmake, openblas-devel, arpack-devel, hdf5-devel
 BuildRequires:  SuperLU-devel
-%endif
+
 
 %description
 Armadillo is a C++ linear algebra library (matrix maths)
@@ -35,12 +32,8 @@ than another language like Matlab or Octave.
 Summary:        Development headers and documentation for the Armadillo C++ library
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
-Requires:       blas-devel, lapack-devel, atlas-devel, arpack-devel, hdf5-devel, libstdc++-devel
-%if 0%{?fedora} > 23
-Requires:  SuperLU-devel
-%else
-Requires:  SuperLU43-devel
-%endif
+Requires:       openblas-devel, arpack-devel, hdf5-devel, libstdc++-devel
+Requires:       SuperLU-devel
 
 
 %description devel
@@ -51,12 +44,6 @@ and user documentation (API reference guide).
 
 %prep
 %setup -q
-
-%if 0%{?fedora} > 23
-# fix for building using SuperLU43
-sed -i 's/\/usr\/include\/SuperLU\//\/usr\/include\/SuperLU43\//' cmake_aux/Modules/ARMA_FindSuperLU.cmake
-sed -i 's/NAMES superlu/NAMES superlu43/' cmake_aux/Modules/ARMA_FindSuperLU.cmake
-%endif
 
 # convert DOS end-of-line to UNIX end-of-line
 
@@ -107,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Mon May 30 2016 José Matos <jamatos@fedoraproject.org> - 7.100.3-1
 - update to 7.100.3
+- link with openblas instead of atlas
 
 * Sat May  7 2016 José Matos <jamatos@fedoraproject.org> - 6.700.6-1
 - update to 6.700.6
