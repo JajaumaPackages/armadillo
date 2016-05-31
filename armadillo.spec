@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        7.100.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -8,7 +8,7 @@ License:        MPLv2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.xz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  cmake, openblas-devel, arpack-devel, hdf5-devel
+BuildRequires:  cmake, openblas-devel, lapack-devel, arpack-devel, hdf5-devel
 BuildRequires:  SuperLU-devel
 
 
@@ -32,7 +32,7 @@ than another language like Matlab or Octave.
 Summary:        Development headers and documentation for the Armadillo C++ library
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
-Requires:       openblas-devel, arpack-devel, hdf5-devel, libstdc++-devel
+Requires:       openblas-devel, lapack-devel, arpack-devel, hdf5-devel, libstdc++-devel
 Requires:       SuperLU-devel
 
 
@@ -92,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Tue May 31 2016 José Matos <jamatos@fedoraproject.org> - 7.100.3-2
+- bring back lapack-devel BR or else LAPACK functions are disabled
+
 * Mon May 30 2016 José Matos <jamatos@fedoraproject.org> - 7.100.3-1
 - update to 7.100.3
 - link with openblas instead of atlas
