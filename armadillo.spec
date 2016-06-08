@@ -1,6 +1,6 @@
 Name:           armadillo
-Version:        7.100.3
-Release:        2%{?dist}
+Version:        7.200.1
+Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -92,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Wed Jun  8 2016 José Matos <jamatos@fedoraproject.org> - 7.200.1-1
+- update to 7.200.1
+
 * Tue May 31 2016 José Matos <jamatos@fedoraproject.org> - 7.100.3-2
 - bring back lapack-devel BR or else LAPACK functions are disabled
 
