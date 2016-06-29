@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        7.200.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -92,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Wed Jun 29 2016 Orion Poplawski <orion@cora.nwra.com> - 7.200.2-2
+- Rebuild for hdf5 1.8.17
+
 * Wed Jun 29 2016 José Matos <jamatos@fedoraproject.org> - 7.200.2-1
 - update to 7.200.2
 
