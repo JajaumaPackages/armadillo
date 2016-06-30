@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        7.200.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -8,7 +8,10 @@ License:        MPLv2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.xz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildRequires:  cmake, openblas-devel, lapack-devel, arpack-devel, hdf5-devel
+BuildRequires:  cmake, lapack-devel, arpack-devel, hdf5-devel
+%ifnarch s390 s390x
+BuildRequires:  openblas-devel
+%endif
 BuildRequires:  SuperLU-devel
 
 
@@ -92,6 +95,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Thu Jun 30 2016 Dan Horák <dan[at]danny.cz> - 7.200.2-3
+- don't use BR: openblas-devel on s390(x)
+
 * Wed Jun 29 2016 Orion Poplawski <orion@cora.nwra.com> - 7.200.2-2
 - Rebuild for hdf5 1.8.17
 
