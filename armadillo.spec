@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        7.200.2
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -35,7 +35,10 @@ than another language like Matlab or Octave.
 Summary:        Development headers and documentation for the Armadillo C++ library
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
-Requires:       openblas-devel, lapack-devel, arpack-devel, hdf5-devel, libstdc++-devel
+Requires:       lapack-devel, arpack-devel, hdf5-devel, libstdc++-devel
+%ifnarch s390 s390x
+Requires:       openblas-devel
+%endif
 Requires:       SuperLU-devel
 
 
@@ -95,6 +98,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Fri Jul 01 2016 Dan Horák <dan[at]danny.cz> - 7.200.2-4
+- and fix also R: in the devel subpackage
+
 * Thu Jun 30 2016 Dan Horák <dan[at]danny.cz> - 7.200.2-3
 - don't use BR: openblas-devel on s390(x)
 
