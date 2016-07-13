@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        7.200.2
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -9,7 +9,7 @@ URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.xz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  cmake, lapack-devel, arpack-devel, hdf5-devel
-%ifnarch s390 s390x
+%ifarch x86_64 %{ix86} armv7hl ppc64le aarch64
 BuildRequires:  openblas-devel
 %endif
 BuildRequires:  SuperLU-devel
@@ -36,7 +36,7 @@ Summary:        Development headers and documentation for the Armadillo C++ libr
 Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       lapack-devel, arpack-devel, hdf5-devel, libstdc++-devel
-%ifnarch s390 s390x
+%ifarch x86_64 %{ix86} armv7hl ppc64le aarch64
 Requires:       openblas-devel
 %endif
 Requires:       SuperLU-devel
@@ -98,6 +98,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Wed Jul 13 2016 Dan Horák <dan[at]danny.cz> - 7.200.2-5
+- switch to positive list for R/BR: openblas-devel that matches openblas' ExclusiveArch tag
+
 * Fri Jul 01 2016 Dan Horák <dan[at]danny.cz> - 7.200.2-4
 - and fix also R: in the devel subpackage
 
