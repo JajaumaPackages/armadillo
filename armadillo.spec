@@ -1,6 +1,6 @@
 Name:           armadillo
-Version:        7.200.2
-Release:        5%{?dist}
+Version:        7.300.0
+Release:        1%{?dist}
 Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
 
 Group:          Development/Libraries
@@ -98,6 +98,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Sun Jul 24 2016 José Matos <jamatos@fedoraproject.org> - 7.300.0-1
+- update to 7.300.0
+
 * Wed Jul 13 2016 Dan Horák <dan[at]danny.cz> - 7.200.2-5
 - switch to positive list for R/BR: openblas-devel that matches openblas' ExclusiveArch tag
 
