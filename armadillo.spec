@@ -1,7 +1,7 @@
 Name:           armadillo
-Version:        7.300.1
+Version:        7.500.0
 Release:        1%{?dist}
-Summary:        Fast C++ matrix library with interfaces to LAPACK and ATLAS
+Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
 Group:          Development/Libraries
 License:        MPLv2.0
@@ -98,6 +98,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Fri Nov  4 2016 José Matos <jamatos@fedoraproject.org> - 7.500.0-1
+- update to 7.500.0
+
 * Fri Jul 29 2016 José Matos <jamatos@fedoraproject.org> - 7.300.1-1
 - update to 7.300.1
 
