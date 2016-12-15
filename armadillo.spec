@@ -89,6 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %{_libdir}/*.so
+%{_libdir}/pkgconfig/%{name}.pc
 %{_includedir}/armadillo
 %{_includedir}/armadillo_bits/
 %{_datadir}/Armadillo/
@@ -100,6 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Dec 15 2016 José Matos <jamatos@fedoraproject.org> - 7.600.1-1
 - update to 7.600.1
+- install pkgconfig file
 
 * Tue Dec 06 2016 Orion Poplawski <orion@cora.nwra.com> - 7.500.0-2
 - Rebuild for hdf5 1.8.18
