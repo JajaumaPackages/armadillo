@@ -1,5 +1,5 @@
 Name:           armadillo
-Version:        7.600.1
+Version:        7.600.2
 Release:        1%{?dist}
 Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
@@ -99,6 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Fri Dec 30 2016 José Matos <jamatos@fedoraproject.org> - 7.600.2-1
+- update to 7.600.2
+
 * Thu Dec 15 2016 José Matos <jamatos@fedoraproject.org> - 7.600.1-1
 - update to 7.600.1
 - install pkgconfig file
