@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        7.600.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
 Group:          Development/Libraries
@@ -99,6 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 7.600.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Fri Dec 30 2016 José Matos <jamatos@fedoraproject.org> - 7.600.2-1
 - update to 7.600.2
 
