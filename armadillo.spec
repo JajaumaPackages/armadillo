@@ -1,9 +1,9 @@
 Name:           armadillo
 Version:        7.800.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
-License:        MPLv2.0
+License:        ASL 2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.xz
 
@@ -32,7 +32,6 @@ than another language like Matlab or Octave.
 
 %package devel
 Summary:        Development headers and documentation for the Armadillo C++ library
-Group:          Development/Libraries
 Requires:       %{name} = %{version}-%{release}
 Requires:       lapack-devel, arpack-devel, hdf5-devel, libstdc++-devel
 %ifarch x86_64 %{ix86} armv7hl ppc64le aarch64
@@ -80,7 +79,7 @@ rm -rf examples/lib_win64
 
 %files
 %{_libdir}/*.so.*
-%license LICENSE.txt
+%license LICENSE.txt NOTICE.txt
 
 %files devel
 %{_libdir}/*.so
@@ -94,6 +93,10 @@ rm -rf examples/lib_win64
 %doc mex_interface
 
 %changelog
+* Fri Mar  3 2017 José Matos <jamatos@fedoraproject.org> - 7.800.1-2
+- really change the license this time (thought experiments do not count)
+- remove last instance of Group in the -devel subpackage
+
 * Fri Mar  3 2017 José Matos <jamatos@fedoraproject.org> - 7.800.1-1
 - update to 7.800.1
 - clean spec file
