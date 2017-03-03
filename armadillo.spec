@@ -1,13 +1,12 @@
 Name:           armadillo
-Version:        7.600.2
-Release:        2%{?dist}
+Version:        7.800.1
+Release:        1%{?dist}
 Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
-Group:          Development/Libraries
 License:        MPLv2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.xz
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
 BuildRequires:  cmake, lapack-devel, arpack-devel, hdf5-devel
 %ifarch x86_64 %{ix86} armv7hl ppc64le aarch64
 BuildRequires:  openblas-devel
@@ -74,10 +73,6 @@ rm -f examples/example1_win64.README.txt
 rm -rf examples/lib_win64
 
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
@@ -99,6 +94,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc mex_interface
 
 %changelog
+* Fri Mar  3 2017 José Matos <jamatos@fedoraproject.org> - 7.800.1-1
+- update to 7.800.1
+- clean spec file
+
 * Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 7.600.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
