@@ -8,7 +8,8 @@ URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.xz
 
 BuildRequires:  cmake, lapack-devel, arpack-devel, hdf5-devel
-%ifarch x86_64 %{ix86} armv7hl ppc64le aarch64
+%{!?openblas_arches:%global openblas_arches x86_64 %{ix86} armv7hl %{power64} aarch64}
+%ifarch %{openblas_arches}
 BuildRequires:  openblas-devel
 %endif
 BuildRequires:  SuperLU-devel
@@ -34,7 +35,7 @@ than another language like Matlab or Octave.
 Summary:        Development headers and documentation for the Armadillo C++ library
 Requires:       %{name} = %{version}-%{release}
 Requires:       lapack-devel, arpack-devel, hdf5-devel, libstdc++-devel
-%ifarch x86_64 %{ix86} armv7hl ppc64le aarch64
+%ifarch %{openblas_arches}
 Requires:       openblas-devel
 %endif
 Requires:       SuperLU-devel
