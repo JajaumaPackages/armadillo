@@ -1,6 +1,6 @@
 Name:           armadillo
-Version:        7.800.1
-Release:        2%{?dist}
+Version:        7.800.2
+Release:        1%{?dist}
 Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
 License:        ASL 2.0
@@ -94,6 +94,9 @@ rm -rf examples/lib_win64
 %doc mex_interface
 
 %changelog
+* Fri Mar 24 2017 José Matos <jamatos@fedoraproject.org> - 7.800.2-1
+- update to 7.800.2
+
 * Fri Mar  3 2017 José Matos <jamatos@fedoraproject.org> - 7.800.1-2
 - really change the license this time (thought experiments do not count)
 - remove last instance of Group in the -devel subpackage
