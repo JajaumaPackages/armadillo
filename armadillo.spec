@@ -1,5 +1,5 @@
 Name:           armadillo
-Version:        7.800.2
+Version:        7.900.1
 Release:        1%{?dist}
 Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
@@ -94,6 +94,9 @@ rm -rf examples/lib_win64
 %doc mex_interface
 
 %changelog
+* Sat May 27 2017 José Matos <jamatos@fedoraproject.org> - 7.900.1-1
+- update to 7.900.1
+
 * Fri Mar 24 2017 José Matos <jamatos@fedoraproject.org> - 7.800.2-1
 - update to 7.800.2
 
