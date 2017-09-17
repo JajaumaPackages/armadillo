@@ -1,6 +1,6 @@
 Name:           armadillo
 Version:        8.100.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
 License:        ASL 2.0
@@ -79,11 +79,11 @@ rm -rf examples/lib_win64
 
 
 %files
-%{_libdir}/*.so.*
+%{_libdir}/libarmadillo.so.8*
 %license LICENSE.txt NOTICE.txt
 
 %files devel
-%{_libdir}/*.so
+%{_libdir}/libarmadillo.so
 %{_libdir}/pkgconfig/%{name}.pc
 %{_includedir}/armadillo
 %{_includedir}/armadillo_bits/
@@ -94,6 +94,9 @@ rm -rf examples/lib_win64
 %doc mex_interface
 
 %changelog
+* Sun Sep 17 2017 Rex Dieter <rdieter@fedoraproject.org> - 8.100.1-2
+- tighten %%files to track library soname
+
 * Wed Sep 13 2017 Ryan Curtin <ryan@ratml.org> - 8.100.1-1
 - Update Armadillo to 8.100.1.
 
