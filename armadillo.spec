@@ -113,11 +113,11 @@ rm -rf examples/lib_win64
 * Thu Nov 30 2017 Ryan Curtin <ryan@ratml.org> - 8.300.0-1
 - Update Armadillo to 8.300.0.
 
-* Sun Sep 17 2017 Rex Dieter <rdieter@fedoraproject.org> - 8.100.1-2
-- tighten %%files to track library soname
-
 * Thu Oct 26 2017 Ryan Curtin <ryan@ratml.org> - 8.200.1-1
 - Update Armadillo to 8.200.1.
+
+* Sun Sep 17 2017 Rex Dieter <rdieter@fedoraproject.org> - 8.100.1-2
+- tighten %%files to track library soname
 
 * Wed Sep 13 2017 Ryan Curtin <ryan@ratml.org> - 8.100.1-1
 - Update Armadillo to 8.100.1.
