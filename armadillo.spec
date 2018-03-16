@@ -1,18 +1,27 @@
 Name:           armadillo
-Version:        8.200.2
-Release:        1%{?dist}
+Version:        8.300.0
+Release:        2%{?dist}
 Summary:        Fast C++ matrix library with syntax similar to MATLAB and Octave
 
 License:        ASL 2.0
 URL:            http://arma.sourceforge.net/
 Source:         http://sourceforge.net/projects/arma/files/%{name}-%{version}.tar.xz
 
-BuildRequires:  cmake, lapack-devel, arpack-devel, hdf5-devel
+%if 0%{?rhel} && 0%{?rhel} < 7
+%define old_epel 1
+%else
+%define old_epel 0
+%endif
+
+BuildRequires:  cmake, lapack-devel, arpack-devel
+%if %{old_epel} == 0
+BuildRequires: hdf5-devel
+%endif
 %{!?openblas_arches:%global openblas_arches x86_64 %{ix86} armv7hl %{power64} aarch64}
 %ifarch %{openblas_arches}
 BuildRequires:  openblas-devel
 %endif
-BuildRequires:  SuperLU-devel
+BuildRequires:  SuperLU-devel atlas-devel
 
 
 %description
@@ -34,11 +43,14 @@ than another language like Matlab or Octave.
 %package devel
 Summary:        Development headers and documentation for the Armadillo C++ library
 Requires:       %{name} = %{version}-%{release}
-Requires:       lapack-devel, arpack-devel, hdf5-devel, libstdc++-devel
+Requires:       lapack-devel, arpack-devel, libstdc++-devel
+%if %{old_epel} == 0
+Requires:	hdf5-devel
+%endif
 %ifarch %{openblas_arches}
 Requires:       openblas-devel
 %endif
-Requires:       SuperLU-devel
+Requires:       SuperLU-devel atlas-devel
 
 
 %description devel
@@ -59,7 +71,11 @@ for file in README.txt; do
 done
 
 %build
+%if %{old_epel} == 1
+%{cmake} -DDETECT_HDF5=OFF .
+%else
 %{cmake}
+%endif
 %{__make} VERBOSE=1 %{?_smp_mflags}
 
 
@@ -94,8 +110,14 @@ rm -rf examples/lib_win64
 %doc mex_interface
 
 %changelog
-* Sun Nov 05 2017 Jajauma's Packages <jajauma@yandex.ru> - 8.200.2-1
-- Update to latest upstream release
+* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 8.300.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
+* Thu Nov 30 2017 Ryan Curtin <ryan@ratml.org> - 8.300.0-1
+- Update Armadillo to 8.300.0.
+
+* Thu Oct 26 2017 Ryan Curtin <ryan@ratml.org> - 8.200.1-1
+- Update Armadillo to 8.200.1.
 
 * Sun Sep 17 2017 Rex Dieter <rdieter@fedoraproject.org> - 8.100.1-2
 - tighten %%files to track library soname
